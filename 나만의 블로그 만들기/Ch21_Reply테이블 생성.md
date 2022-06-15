@@ -28,4 +28,4 @@ public class Reply {
 	private Timestamp createDate;
 }
 ```
- #### ✔ ManyToOne인지 ManyToMany인지 확실하게 확인하자!!
+ #### ✔ ManyToOne vs ManyToMany 확실하게 확인!!
