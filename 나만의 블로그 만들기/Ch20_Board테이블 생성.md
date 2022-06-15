@@ -26,6 +26,6 @@ public class Board {
 	private Timestamp createDate;
 }
 ```
- #### @ManyToOne : MySQL에서는 오브젝트를 컬럼으로 만들수없어서 FK를 사용하지만 자바는 오브젝트를 저장할 수 있다.
+ #### ✔ MySQL에서는 오브젝트를 컬럼으로 만들수없어서 FK를 사용하지만 자바는 오브젝트를 저장할 수 있다.
   - JoinColumn 어노테이션을 활용해서 Join / name속성으로 컬럼 이름 지정
   - ManyToOne 어노테이션으로 객체 관계 설정
