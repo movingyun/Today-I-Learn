@@ -1,19 +1,41 @@
-## OwnMate - 운동 메이트 추천 사이트
-### 05.18
-#### 1. 좋아요, 싫어요 버튼 기능 구현 고민...
-#### 2. 회원가입 id 중복체크 어떻게 할래?
- 
-### 05.19
-#### 1. 회원가입 시 파일 업로드 문제 해결해야댐..
-#### 2. 로그인, JWT 구현해야댐...
+## ch18_User테이블 생성
+### 2022.06.15
 
+> **DTO - User**
+```java
+public class User {
+	
+	@Id//primary key 주기
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //프로젝트에서 연결된 DB의 넘버링 전략을 따라감.(=mySQL에서는 auto_increment를 사용하겠다!)
+	private int id; //auto_increment
+	
+	@Column(nullable = false,length = 30) //Column어노테이션으로 컬럼 속성 준다(Notnull, 길이 = 30)
+	private String username; //아이디
+	
+	@Column(nullable = false,length = 100) //Notnull, 길이 = 100
+	private String password;
+	
+	@Column(nullable = false,length = 50) //Notnull, 길이 = 50
+	private String email;
+	
+	@ColumnDefault(" 'user' ") //기본값 지정
+	private String role; //Enum(값의 도메인을 정해둠)을 쓰는게 좋다. //admin,user,manager
+	
+	@CreationTimestamp //시간이 자동 입력
+	private Timestamp createDate;
+}
+```
 
-
-
-### 개발 중 오류...
-#### 1. resultMap 선언 후 resultMap 대신 resultType으로 작성
-`Cause: java.lang.ClassNotFoundException: Cannot find class: reviewMap`
- - resultType을 resultMap으로 변경하여 오류 해결
- #### 2. pw를 uuid로 변경해서 넣어주니 데이터 길이 초과
- `Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation:`
- - MySQL에서 pw의 길이를 varchar(30)에서 varchar(100)으로 변경
+> **application.yml**
+```java
+    jpa:
+    open-in-view: true 
+    hibernate:
+      ddl-auto: create // 프로그램이 시작될 때 테이블을 create하기(추후에 update로 바꿔줘야된다. 안바꿔주면 기존에 있던 table이 날라간다.)
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl //변수명 그대로 컬럼 생성(다른 속성을 주게되면 myEmail을 my_email로 만든다)
+      use-new-id-generator-mappings: false 
+    show-sql: true // console창에 작성된 sql문 보여주기
+    properties:
+      hibernate.format_sql: true
+```
