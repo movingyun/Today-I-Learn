@@ -209,3 +209,9 @@ public class 그래프05_프림2 {
 			+ "2 4 46\r\n" + "2 6 25\r\n" + "3 4 34\r\n" + "4 6 51\r\n" + "5 3 18\r\n" + "5 4 40\r\n";
 }
 ```
+
+### 관련문제
+ - [BOJ_1197최소 스패닝 트리](https://www.acmicpc.net/problem/1197)
+
+ ### 참고문서
+  - https://gmlwjd9405.github.io/2018/08/28/algorithm-mst.html
