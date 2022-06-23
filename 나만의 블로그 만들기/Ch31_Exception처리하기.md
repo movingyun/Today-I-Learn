@@ -1,21 +1,31 @@
 ## ch31_Exception처리하기
 ### 2022.06.23
 
-#### Update 1번 방법 - userRepositoy.save 활용
-> **DummyControllerTest**
+> **GlobalExceptionHandler**
 ```java
-	//삭제하기
-	@DeleteMapping("/dummy/user/{id}")
-	public String delete(@PathVariable int id) {
-		try {
-			userRepositoy.deleteById(id);
-		} catch (EmptyResultDataAccessException e) {
-			return "삭제에 실패했습니다.";
-		}
-		return "삭제되었습니다.";
+package com.cos.blog.handler;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestController;
+
+@ControllerAdvice //모든 exception이 생기면 일로들어와
+@RestController
+public class GlobalExceptionHandler {
+	
+	@ExceptionHandler(value = IllegalArgumentException.class)
+	public String handleArgumentExeption(IllegalArgumentException e) {
+		return "<h1>"+e.getMessage() +"</h1>";
 	}
+}
+
 ```
 
-#### ✔ try, catch문
- - try, catch문을 활용하여 예외처리를 해준다.
- - 가장 상위 예외인 Exeption으로 처리를 해줘도 되지만 조금 더 구체적으로 작성해줘야 좋다.
+#### ✔ @ControllerAdvice
+ - 어디서든 예외가 발생하면 여기서 처리한다.
+
+#### ✔ @ExceptionHandler
+ - 처리하고싶은 예외를 지정해 준다.
+ - value = "내가 처리 할 예외"
+
+ 
