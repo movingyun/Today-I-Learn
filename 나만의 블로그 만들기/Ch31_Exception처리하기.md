@@ -1,6 +1,7 @@
-## ch30_삭제하기 테스트
+## ch31_Exception처리하기
 ### 2022.06.23
 
+#### Update 1번 방법 - userRepositoy.save 활용
 > **DummyControllerTest**
 ```java
 	//삭제하기
