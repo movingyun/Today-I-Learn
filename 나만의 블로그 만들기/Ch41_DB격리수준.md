@@ -53,3 +53,7 @@
 
 #### ✔ 트랜잭션 격리 수준이 필요한 이유?
  - 일관성(Consistency)을 지키기 위해서.
+
+
+#### ✔ 참고
+ - https://velog.io/@guswns3371/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80
