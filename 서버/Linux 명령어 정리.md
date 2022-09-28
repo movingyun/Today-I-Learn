@@ -159,4 +159,7 @@ nohup java -jar [jar파일이름].jar &
 
 #  pid에 해당하는 프로세스 강제 종료 ( graceful 하지 못한 방식이기에 선호하지 않는다... )
 kill -9 pid
+
+# jenkins bash로 이동
+sudo docker exec -it jenkins bash
 ```
