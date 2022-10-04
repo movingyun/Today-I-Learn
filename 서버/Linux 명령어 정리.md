@@ -162,4 +162,10 @@ kill -9 pid
 
 # jenkins bash로 이동
 sudo docker exec -it jenkins bash
+
+# Google Driver 설치(build/libs 에서 설치)
+ wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_linux64.zip
+ 
+# 압축 해제
+unzip chromedriver_linux64.zip
 ```
